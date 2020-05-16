@@ -8,10 +8,8 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "program": "${workspaceFolder}\\script.js"
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\lesson2.js"
     }
   ]
 }
