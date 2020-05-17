@@ -18,7 +18,7 @@ let car = {
   price: 37777,
 };
 
-console.log(`About this car : `);
+console.log("About this car : ");
 
 for (let key in car) {
   console.log(`${key} , ${car[key]}`);
@@ -34,10 +34,10 @@ let car1 = {
   color: "Grey",
   year: 2018,
   horseForce: 160,
-  price: "13333$",
+  price: 13333,
 };
 
-console.log(`About this car : `);
+console.log("About this car : ");
 for (let key in car1) {
   console.log(`${key}, ${car1[key]}`);
 }
@@ -55,7 +55,7 @@ let car2 = {
   price: 11111,
 };
 
-console.log(`About this car : `);
+console.log("About this car : ");
 for (let key in car2) {
   console.log(`${key}, ${car2[key]}`);
 }
@@ -70,10 +70,10 @@ let car3 = {
   color: "Grey",
   year: 2016,
   horseForce: 450,
-  price: "28000$",
+  price: 28000,
 };
 
-console.log(`About this car : `);
+console.log("About this car : ");
 for (let key in car3) {
   console.log(`${key}, ${car3[key]}`);
 }
