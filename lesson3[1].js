@@ -11,7 +11,7 @@
 ///////////////////////////////////////////////
 // let car = {
 
-let car = {
+let car2 = {
   marka: "Toyota",
   model: "Highlender",
   color: "Grey",
@@ -29,7 +29,7 @@ let car1 = {
   price: 13000,
 };
 ////////////////////////////////
-let car2 = {
+let car3 = {
   marka: "BMW",
   model: "E35",
   color: "Grey",
@@ -38,7 +38,7 @@ let car2 = {
   price: 8900,
 };
 ////////////////////////////////////////
-let car3 = {
+let car = {
   marka: "Mercedes",
   model: "GL",
   color: "Grey",
@@ -52,24 +52,30 @@ let allCars = [car, car1, car2, car3];
 // function calcAveragePrice(items, value) {
 //   let sum = 0;
 
-//   for (i = 0; i < items.length; i++) {
+//   for (let i = 0; i < items.length; i++) {
 //     sum += items[i][value];
 //   }
 
-//   console.log(`The average ${value} of our cars is : ${sum / items.length}`);
+//   let result = sum / items.length;
+//   return result;
 // }
 
-// calcAveragePrice(allCars, "price");
-// calcAveragePrice(allCars, "horsePower");
+// let calcAverage = calcAveragePrice(allCars, "price");
+// console.log(`Average price is : ${calcAverage}`);
 
-function foundCarWithMaxPrice(items, value) {
+function foundCarWithMaxPrice(items, price) {
   let maxPrice = 0;
+  let maxPriceCar = "";
   for (i = 0; i < items.length; i++) {
-    if (maxPrice < items[i][value]) {
-      maxPrice = items[i][value];
+    if (maxPrice < items[i].price) {
+      maxPrice = items[i].price;
+      maxPriceCar = items[i];
     }
   }
-  console.log(`The average price of our cars is : ${maxPrice}`);
+  let result = maxPriceCar;
+  return result;
 }
-
-foundCarWithMaxPrice(allCars, "price");
+console.log(
+  `The most expensive car is :`,
+  foundCarWithMaxPrice(allCars, "price")
+);
