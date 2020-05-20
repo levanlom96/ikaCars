@@ -72,7 +72,7 @@ function foundCarWithMaxPrice(items) {
       maxPriceCar = items[i];
     }
   }
-  let result = maxPriceCar;
-  return result;
+
+  return maxPriceCar;
 }
 console.log(`The most expensive car is :`, foundCarWithMaxPrice(allCars));
