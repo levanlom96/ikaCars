@@ -94,30 +94,30 @@ let car = {
 };
 
 let car1 = {
-  marka: "Toyota",
-  model: "Prius",
-  color: "Grey",
-  year: 2018,
-  horsePower: 160,
-  price: 13000,
+  marka: "Ford",
+  model: "Mustang",
+  color: "Black",
+  year: 1969,
+  horsePower: 340,
+  price: 37000,
 };
 
 let car2 = {
-  marka: "BMW",
-  model: "E35",
+  marka: "Mercedes-Benz",
+  model: "CLS-50",
   color: "Grey",
-  year: 2012,
+  year: 2014,
   horsePower: 280,
-  price: 8900,
+  price: 13500,
 };
 
 let car3 = {
-  marka: "Mercedes",
-  model: "GL",
-  color: "Grey",
-  year: 2016,
-  horsePower: 450,
-  price: 28000,
+  marka: "Mini",
+  model: "Cooper",
+  color: "Red",
+  year: 2013,
+  horsePower: 170,
+  price: 12200,
 };
 
 let allCars = [car, car1, car2, car3];

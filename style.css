@@ -1,0 +1,20 @@
+.card {
+  height: 250px;
+}
+
+.card__button {
+  height: 32px;
+}
+
+.card__button:focus {
+  outline: none;
+}
+
+.input--line:focus {
+  outline: 1px solid #007bff;
+  box-shadow: none;
+}
+
+.search--button:focus {
+  outline: none;
+}
