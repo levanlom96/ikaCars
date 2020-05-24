@@ -1,4 +1,12 @@
 let car = {
+  properties: [
+    { label: 'Marka', value: 'Toyota' },
+    { label: 'Model', value: 'Highlender' },
+    { label: 'Color', value: 'Grey' },
+    { label: 'Year', value: '2018' },
+    { label: 'Horse Power', value: '370' },
+    { label: 'Price', value: '31777' },
+  ],
   marka: "Toyota",
   model: "Highlender",
   color: "Grey",
@@ -8,6 +16,14 @@ let car = {
 };
 
 let car1 = {
+  properties: [
+    { label: 'Marka', value: 'Ford' },
+    { label: 'Model', value: 'Mustang' },
+    { label: 'Color', value: 'Black' },
+    { label: 'Year', value: '1969' },
+    { label: 'Horse Power', value: '340' },
+    { label: 'Price', value: '37000' },
+  ],
   marka: "Ford",
   model: "Mustang",
   color: "Black",
@@ -35,14 +51,98 @@ let car3 = {
 };
 
 let allCars = [car, car1, car2, car3];
-let carFound = false;
-for (i = 0; i < allCars.length; i++) {
-  if (allCars[i].price < 15000) {
-    carFound = true;
+
+var popup = document.getElementById('popup');
+
+function damachira(index) {
+  var content = document.getElementById('content');
+  content.innerHTML = '';
+
+  if (allCars[index] && allCars[index].properties) {
+
+    for (var i = 0; i < allCars[index].properties.length; i++) {
+      var singleProperty = createDomElement(allCars[index].properties[i].label, allCars[index].properties[i].value);
+      content.append(singleProperty);
+    }
+
   }
+
+  openPopup();
 }
-if (carFound) {
-  console.log("Yes, we have some car's.");
-} else {
-  console.log("No, sorry we dont have car's in this price.");
+
+function createDomElement(label, value) {
+  var singleProperty = document.createElement('div');
+  singleProperty.setAttribute('class', 'popup__single-property');
+
+  var labelSpan = document.createElement('span');
+  labelSpan.setAttribute('class', 'popup__single-property-label');
+  labelSpan.appendChild(document.createTextNode(label + ' - '));
+
+  var valueSpan = document.createElement('span');
+  valueSpan.setAttribute('class', 'popup__single-property-value');
+  valueSpan.appendChild(document.createTextNode(value));
+
+  singleProperty.append(labelSpan);
+  singleProperty.append(valueSpan);
+
+  return singleProperty;
+}
+
+function closePopup() {
+  popup.classList.remove('popup--shown');
+}
+
+function showCars() {
+  var input = document.getElementById('searchInput');
+  var foundCars = findLessPriceThan(input.value);
+
+  showSearchResultInHtml(foundCars, input.value);
+  openPopup();
+}
+
+function findLessPriceThan(price) {
+
+  var foundCars = [];
+
+  for (i = 0; i < allCars.length; i++) {
+    if (allCars[i].price < price) {
+      foundCars.push(allCars[i]);
+    }
+  }
+
+  return foundCars;
+}
+
+function showSearchResultInHtml(searchResult, price) {
+  var content = document.getElementById('content');
+  content.innerHTML = '';
+
+  if (searchResult && searchResult.length) {
+    // Show Result 
+    for (var i = 0; i < searchResult.length; i++) {
+      var searchResultNode = document.createElement('div');
+      searchResultNode.setAttribute('class', 'popup__search-result');
+
+      var text = searchResult[i].marka + " " + searchResult[i].model + " - " + searchResult[i].price + "$";
+      var textNode = document.createTextNode(text);
+      searchResultNode.appendChild(textNode);
+      content.append(searchResultNode);
+    }
+
+  } else {
+
+    // Show Error 
+    var message = "Cars with price less than " + price + "$ was not found.";
+
+    var notFoundNode = document.createElement('div');
+    notFoundNode.setAttribute('class', 'popup__search-not-found');
+    notFoundNode.appendChild(document.createTextNode(message));
+
+    content.append(notFoundNode);
+  }
+
+}
+
+function openPopup() {
+  popup.classList.add('popup--shown');
 }
